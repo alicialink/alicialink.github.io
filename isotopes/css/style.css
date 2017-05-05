@@ -1,0 +1,19 @@
+body {
+  background-color: #fff;
+  color: #000;
+  font-family: 'Montserrat';
+}
+
+.first-row {
+  margin-top: 25px
+}
+
+.search-substring {
+  color: #981b1e;
+  text-align: right;
+}
+
+.license {
+  text-align: right;
+  font-style: italic;
+}

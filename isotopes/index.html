@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Published Isotope Lookup</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/889829/nuclides-elements-objects.js"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  <div class="container" ng-controller="IsotopeListController as ilc" ng-app="isotopelist.app">
+  <h3>Isotope Lookup</h3>
+  <p>Below, type the element symbol (for example, Am) or element name (for example, Americium) to search for isotopes of the element. See wikipedia for more about <a href="https://fr.wikipedia.org/wiki/Am%C3%A9ricium" target="_blank">Americium</a> or the <a href="https://en.wikipedia.org/wiki/List_of_nuclides" target="_blank">List of Nuclides</a> from where this data was obtained.</p>
+  <div class="row first-row">   
+    <div class="four columns">
+      <input type="text" class="u-full-width" ng-model="ilc.zElement" id="zElement" name="zElement">
+    </div>
+    <div class="two columns"><button class="u-full-width reset-button" ng-click="ilc.resetSearch()">Reset</button></div>
+    <div class="one column">&nbsp;</div>
+    <div class="five columns"><h3 class="search-substring u-full-width">{{ ilc.zElement }}</h3></div>
+  </div>
+  <div class="row">
+      <table class="u-full-width">
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th>Name</th>
+            <th>Protons</th>
+            <th>Neutrons</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="isotope in ilc.isotopes | isotopeFilter:ilc.zElement">
+            <td><sup>{{ isotope.a }}</sup>{{ isotope.sym }}</td>
+            <td>{{ isotope.name }}-{{ isotope.a }}</td>
+            <td>{{ isotope.z }}</td>
+            <td>{{ isotope.a - isotope.z }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="license"><a href="LICENSE.txt">BSD-2-Clause</a></p>
+
+  </div>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js'></script>
+
+    <script src="js/index.js"></script>
+
+</body>
+</html>
