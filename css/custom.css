@@ -1,3 +1,11 @@
 .container-margin {
     margin: 7%;
 }
+
+.blockhead {
+    display: block;
+}
+
+article {
+    border-bottom: 1px solid gray;
+}
