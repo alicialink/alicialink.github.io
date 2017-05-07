@@ -11,3 +11,21 @@ article {
     border-bottom: 1px solid gray;
     padding-bottom: 1em;
 }
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .youtube-vid {
+        width: 280px;
+        height: 158px;
+    }
+}
+
+@media only screen and (min-device-width : 481px) {
+    .youtube-vid {
+        width: 440px;
+        height: 248px;
+    }
+}
+
+.date-stamp {
+    font-weight: bold;
+}
